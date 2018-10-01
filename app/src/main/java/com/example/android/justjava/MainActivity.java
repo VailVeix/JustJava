@@ -10,6 +10,7 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
     private int quantity = 0;
+    private int price = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +31,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitOrder(View view){
-        int numberOfCoffees = 5;
-        int priceOfCoffee = 2;
-        display(numberOfCoffees);
-        displayPrice(priceOfCoffee*numberOfCoffees);
+        displayPrice(price*quantity);
     }
 
     private void display(int number){
