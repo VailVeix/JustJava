@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void submitOrder(View view){
         displayPrice(price*quantity);
+        displayMessage("Free");
     }
 
     private void display(int number){
@@ -41,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText("$" + number);
+        priceTextView.setText("Total: $" + number);
+    }
+
+    private void displayMessage(String msg) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_message_view);
+        priceTextView.setText(msg);
     }
 }
