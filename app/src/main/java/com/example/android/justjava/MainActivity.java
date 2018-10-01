@@ -23,8 +23,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void decrement(View view){
-        quantity--;
-        display(1);
+        if(quantity > 0) {
+            quantity--;
+        }
+        display(quantity);
     }
 
     public void submitOrder(View view){
