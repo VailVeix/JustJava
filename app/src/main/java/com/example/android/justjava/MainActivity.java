@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
 
     private int quantity = 0;
     private int price = 5;
+    private int creamPrice = 1;
+    private int chocoPrice = 2;
     private int userPrice = 0;
     private boolean toppingAdd = false;
     private boolean toppingAddChoco = false;
@@ -44,6 +46,22 @@ public class MainActivity extends AppCompatActivity {
         return orderSummary;
     }
 
+    private int calculatePrice(int quantity, boolean toppingAdd, boolean toppingAddChoco){
+        int tempPrice = price;
+
+        if(toppingAdd){
+            tempPrice += creamPrice;
+        }
+
+        if(toppingAddChoco){
+            tempPrice += chocoPrice;
+        }
+
+        tempPrice *= quantity;
+
+        return tempPrice;
+    }
+
     public void submitOrder(View view){
         CheckBox toppingBox = (CheckBox) findViewById(R.id.toppings);
         toppingAdd = toppingBox.isChecked();
@@ -54,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
         EditText editName = (EditText) findViewById(R.id.name);
         String name = editName.getText().toString();
 
-        userPrice = price*quantity;
+        userPrice = calculatePrice(quantity, toppingAdd, toppingAddChoco);
 
-        displayPrice(price*quantity);
-        displayMessage(createOrderSummary(price*quantity, toppingAdd, toppingAddChoco, name));
+        displayPrice(userPrice);
+        displayMessage(createOrderSummary(userPrice, toppingAdd, toppingAddChoco, name));
     }
 
     private void display(int number){
@@ -73,9 +91,5 @@ public class MainActivity extends AppCompatActivity {
     private void displayMessage(String msg) {
         TextView priceTextView = (TextView) findViewById(R.id.price_message_view);
         priceTextView.setText(msg);
-    }
-
-    private void calculatePrice(int quantity){
-
     }
 }
