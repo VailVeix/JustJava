@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int quantity = 0;
     private int price = 5;
+    private int userPrice = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +31,17 @@ public class MainActivity extends AppCompatActivity {
         display(quantity);
     }
 
+    private String createOrderSummary(int number){
+        String orderSummary ="Name: Skips Snow";
+        orderSummary += "\nQuantity: " + quantity;
+        orderSummary += "\nThank You!";
+        return orderSummary;
+    }
+
     public void submitOrder(View view){
+        userPrice = price*quantity;
         displayPrice(price*quantity);
-        displayMessage("Free");
+        displayMessage(createOrderSummary(price*quantity));
     }
 
     private void display(int number){
@@ -48,5 +57,9 @@ public class MainActivity extends AppCompatActivity {
     private void displayMessage(String msg) {
         TextView priceTextView = (TextView) findViewById(R.id.price_message_view);
         priceTextView.setText(msg);
+    }
+
+    private void calculatePrice(int quantity){
+
     }
 }
