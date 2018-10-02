@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private int price = 5;
     private int userPrice = 0;
     private boolean toppingAdd = false;
+    private boolean toppingAddChoco = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +34,10 @@ public class MainActivity extends AppCompatActivity {
         display(quantity);
     }
 
-    private String createOrderSummary(int number, boolean toppingAdd){
+    private String createOrderSummary(int number, boolean toppingAdd, boolean toppingAddChoco){
         String orderSummary ="Name: Skips Snow";
         orderSummary += "\nAdd Whipped Cream: " + toppingAdd;
+        orderSummary += "\nAdd Chocolate: " + toppingAddChoco;
         orderSummary += "\nQuantity: " + quantity;
         orderSummary += "\nThank You!";
         return orderSummary;
@@ -43,12 +45,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void submitOrder(View view){
         CheckBox toppingBox = (CheckBox) findViewById(R.id.toppings);
-
         toppingAdd = toppingBox.isChecked();
+
+        toppingBox = (CheckBox) findViewById(R.id.chocoToppings);
+        toppingAddChoco = toppingBox.isChecked();
+
         userPrice = price*quantity;
 
         displayPrice(price*quantity);
-        displayMessage(createOrderSummary(price*quantity, toppingAdd));
+        displayMessage(createOrderSummary(price*quantity, toppingAdd, toppingAddChoco));
     }
 
     private void display(int number){
