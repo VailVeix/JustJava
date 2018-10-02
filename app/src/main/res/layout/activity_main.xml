@@ -103,29 +103,6 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Order Summary"
-            android:textAllCaps="true"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:paddingTop="16dp"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:id="@+id/price_text_view" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:id="@+id/price_message_view" />
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
