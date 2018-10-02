@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -34,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
         display(quantity);
     }
 
-    private String createOrderSummary(int number, boolean toppingAdd, boolean toppingAddChoco){
-        String orderSummary ="Name: Skips Snow";
-        orderSummary += "\nAdd Whipped Cream: " + toppingAdd;
-        orderSummary += "\nAdd Chocolate: " + toppingAddChoco;
+    private String createOrderSummary(int number, boolean toppingAdd, boolean toppingAddChoco, String name){
+        String orderSummary ="Name: " + name;
+        orderSummary += "\nAdd Whipped Cream? " + toppingAdd;
+        orderSummary += "\nAdd Chocolate? " + toppingAddChoco;
         orderSummary += "\nQuantity: " + quantity;
         orderSummary += "\nThank You!";
         return orderSummary;
@@ -50,10 +51,13 @@ public class MainActivity extends AppCompatActivity {
         toppingBox = (CheckBox) findViewById(R.id.chocoToppings);
         toppingAddChoco = toppingBox.isChecked();
 
+        EditText editName = (EditText) findViewById(R.id.name);
+        String name = editName.getText().toString();
+
         userPrice = price*quantity;
 
         displayPrice(price*quantity);
-        displayMessage(createOrderSummary(price*quantity, toppingAdd, toppingAddChoco));
+        displayMessage(createOrderSummary(price*quantity, toppingAdd, toppingAddChoco, name));
     }
 
     private void display(int number){
