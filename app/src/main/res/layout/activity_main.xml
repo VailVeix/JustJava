@@ -17,13 +17,13 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="16dp"
             android:inputType="textCapWords"
-            android:hint="Name"
+            android:hint="@string/name"
             android:id="@+id/name"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Toppings"
+            android:text="@string/toppings"
             android:textAllCaps="true"
             android:layout_marginBottom="16dp"/>
 
@@ -42,7 +42,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Whipped cream"
+                android:text="@string/whipped_cream"
                 android:textSize="16sp"/>
 
         </LinearLayout>
@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chocolate"
+                android:text="@string/chocolate"
                 android:textSize="16sp"/>
 
         </LinearLayout>
@@ -70,7 +70,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="QUANTITY"
+            android:text="@string/quantity"
             android:textAllCaps="true"/>
 
         <LinearLayout
@@ -106,7 +106,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ORDER"
+            android:text="@string/order"
             android:onClick="submitOrder"/>
 
     </LinearLayout>

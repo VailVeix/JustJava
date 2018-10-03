@@ -41,11 +41,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String createOrderSummary(int number, boolean toppingAdd, boolean toppingAddChoco, String name){
-        String orderSummary ="Name: " + name;
-        orderSummary += "\nAdd Whipped Cream? " + toppingAdd;
-        orderSummary += "\nAdd Chocolate? " + toppingAddChoco;
-        orderSummary += "\nQuantity: " + quantity;
-        orderSummary += "\nThank You!";
+        String price = "$" + Integer.toString(number);
+        String orderSummary = getString(R.string.order_summary_name, name);
+        orderSummary += "\n" + getString(R.string.order_summary_whipped_cream, toppingAdd);
+        orderSummary += "\n" + getString(R.string.order_summary_chocolate, toppingAddChoco);
+        orderSummary += "\n" + getString(R.string.order_summary_quantity, quantity);
+        orderSummary += "\n" + getString(R.string.order_summary_price, price);
+        orderSummary += "\n" + getString(R.string.thank_you);
         return orderSummary;
     }
 
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openEmail(String orderSummary, String name){
-        String subject = "JustJava order for " + name;
+        String subject = getString(R.string.order_summary_email_subject, name);
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
